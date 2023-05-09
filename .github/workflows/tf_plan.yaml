@@ -1,0 +1,24 @@
+name: Terraform plan
+
+on: push
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+      
+      - name: Authenticate to GCP
+        uses: 'google-github-actions/auth@v1'
+        with:
+          project_id: 'bornin-project'
+          credentials_json: ${{ secrets.SERVICE_ACCOUNT }}
+      
+      - name: Terraform init
+        run: terraform init
+
+      - name: Terraform plan
+        run: terraform plan
