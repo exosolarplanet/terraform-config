@@ -23,5 +23,19 @@ resource "google_sql_database_instance" "main" {
 
   settings {
     tier = "db-f1-micro"
+    
+    database_flags {
+      name  = "cloudsql.iam_authentication"
+      value = "on"
+    }
   }
+}
+
+data "google_app_engine_default_service_account" "default" {
+}
+
+resource "google_sql_user" "users" {
+  name     = data.google_app_engine_default_service_account.default.email
+  instance = google_sql_database_instance.main.name
+  type     = "CLOUD_IAM_USER"
 }
