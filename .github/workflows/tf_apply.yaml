@@ -1,9 +1,13 @@
-name: Terraform plan
+name: Terraform apply
 
-on: push
+on:
+  workflow_dispatch:
+    inputs:
+      tf_apply:
+        type: boolean
 
 jobs:
-  plan:
+  apply:
     runs-on: ubuntu-latest
     steps:
       - name: Setup terraform
@@ -16,3 +20,6 @@ jobs:
 
       - name: Terraform plan
         run: terraform plan
+      
+      - name: Terraform apply
+        run: terraform apply
