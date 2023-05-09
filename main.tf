@@ -34,6 +34,15 @@ resource "google_sql_database_instance" "main" {
 data "google_app_engine_default_service_account" "default" {
 }
 
+resource "google_project_iam_binding" "project" {
+  project = var.project_id
+  role    = "roles/cloudsql.instanceUser"
+
+  members = [
+    "serviceAccount:data.google_app_engine_default_service_account.default.email",
+  ]
+}
+
 resource "google_sql_user" "users" {
   name     = data.google_app_engine_default_service_account.default.email
   instance = google_sql_database_instance.main.name
