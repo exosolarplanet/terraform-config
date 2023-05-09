@@ -19,7 +19,7 @@ jobs:
       
       - name: Terraform init
         run: |-
-          pwd
+          ls -la
           terraform init
 
       - name: Terraform plan
