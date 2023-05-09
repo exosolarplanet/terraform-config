@@ -1,14 +1,18 @@
-name: Terraform plan
+name: Terraform apply
 
-on: push
+on:
+  workflow_dispatch:
+    inputs:
+      tf_apply:
+        type: boolean
 
 jobs:
-  plan:
+  apply:
     runs-on: ubuntu-latest
     steps:
       - name: Repo Checkout
         uses: actions/checkout@v3
-
+        
       - name: Setup terraform
         uses: hashicorp/setup-terraform@v2
         with:
@@ -19,3 +23,6 @@ jobs:
 
       - name: Terraform plan
         run: terraform plan
+      
+      - name: Terraform apply
+        run: terraform apply
