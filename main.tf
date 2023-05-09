@@ -2,7 +2,7 @@ terraform {
   cloud {
     organization = "my-company-ece"
     workspaces {
-      name = "terraform-config"
+      name = "bornin-terraform-config"
     }
   }
 }
