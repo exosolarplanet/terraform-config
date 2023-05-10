@@ -61,6 +61,8 @@ resource "google_sql_database_instance" "bornin-db-instance" {
 }
 
 resource "google_sql_database" "database" {
+  provider = google-beta
+
   name     = "bornin-database"
   instance = google_sql_database_instance.bornin-db-instance.name
 }
@@ -70,6 +72,8 @@ resource "random_id" "db_pass" {
 }
 
 resource "google_sql_user" "users" {
+  provider = google-beta
+
   name     = "guest"
   instance = google_sql_database_instance.bornin-db-instance.name
   password = random_id.db_pass.hex
