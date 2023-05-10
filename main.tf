@@ -72,4 +72,9 @@ resource "google_sql_user" "users" {
   
 }
 
+# resource "google_vpc_access_connector" "connector" {
+#   name          = "quickstart-connector"
+#   ip_cidr_range = "10.8.0.0/28"
+#   network       = "default"
+# }
 
