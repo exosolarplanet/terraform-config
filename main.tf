@@ -69,6 +69,7 @@ resource "google_sql_user" "users" {
   name     = "guest"
   instance = google_sql_database_instance.bornin-db-instance.name
   password = random_id.db_pass.hex
+  
 }
 
 
