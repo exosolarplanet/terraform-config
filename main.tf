@@ -11,11 +11,11 @@ provider "google-beta" {
     project = var.project_id
 }
 
-# resource "google_app_engine_application" "bornin" {
-#   provider    = google-beta
-#   project     = var.project_id
-#   location_id = "europe-west3"
-# }
+resource "google_app_engine_application" "bornin" {
+  provider    = google-beta
+  project     = var.project_id
+  location_id = "europe-west3"
+}
 
 resource "google_compute_network" "private_network" {
   provider = google-beta
