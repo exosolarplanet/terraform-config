@@ -45,6 +45,7 @@ resource "google_sql_database_instance" "bornin-db-instance" {
   name             = "bornin-db-instance"
   database_version = "MYSQL_8_0"
   region           = "europe-west3"
+  deletion_protection = false
 
   depends_on = [google_service_networking_connection.private_vpc_connection]
   settings {
