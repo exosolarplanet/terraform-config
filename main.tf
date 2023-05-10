@@ -40,6 +40,12 @@ resource "google_service_networking_connection" "private_vpc_connection" {
   reserved_peering_ranges = [google_compute_global_address.private_ip_address.name]
 }
 
+resource "google_sql_database_instance" "main" {
+  name = "main-instance"
+  database_version = "POSTGRES_14"
+  deletion_protection = false
+}
+
 resource "google_sql_database_instance" "bornin-db-instance" {
   name             = "bornin-db-instance"
   database_version = "MYSQL_8_0"
