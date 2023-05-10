@@ -11,10 +11,9 @@ provider "google-beta" {
     project = var.project_id
 }
 
-resource "google_app_engine_application" "bornin" {
-  provider    = google-beta
+resource "google_app_engine_application" "app" {
   project     = var.project_id
-  location_id = "europe-west3"
+  location_id = "europe-west"
 }
 
 resource "google_compute_network" "private_network" {
@@ -47,7 +46,7 @@ resource "google_sql_database_instance" "bornin-db-instance" {
 
   name             = "bornin-db-instance"
   database_version = "MYSQL_8_0"
-  region           = "europe-west3"
+  region           = "europe-west"
   deletion_protection = false
 
   depends_on = [google_service_networking_connection.private_vpc_connection]
@@ -87,6 +86,6 @@ resource "google_vpc_access_connector" "connector" {
   name          = "quickstart-connector"
   ip_cidr_range = "10.8.0.0/28"
   network       = google_compute_network.private_network.id
-  region        = "europe-west3"
+  region        = "europe-west"
 }
 
