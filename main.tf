@@ -42,6 +42,8 @@ resource "google_service_networking_connection" "private_vpc_connection" {
 
 
 resource "google_sql_database_instance" "bornin-db-instance" {
+  provider = google-beta
+
   name             = "bornin-db-instance"
   database_version = "MYSQL_8_0"
   region           = "europe-west3"
