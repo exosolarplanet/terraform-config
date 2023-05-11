@@ -20,6 +20,7 @@ resource "google_app_engine_application" "app" {
 
 data "google_app_engine_default_service_account" "default" {
   provider = google-beta
+  project  = var.project_id
 
 }
 
