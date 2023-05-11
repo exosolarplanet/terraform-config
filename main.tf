@@ -18,22 +18,22 @@ resource "google_app_engine_application" "app" {
   location_id = "europe-west3"
 }
 
-# data "google_app_engine_default_service_account" "default" {
-#   provider = google-beta
-#   project  = var.project_id
+data "google_app_engine_default_service_account" "default" {
+  provider = google-beta
+  project  = var.project_id
 
-# }
+}
 
-# resource "google_service_account_iam_binding" "admin-account-iam" {
-#   provider = google-beta
+resource "google_service_account_iam_binding" "admin-account-iam" {
+  provider = google-beta
   
-#   service_account_id = data.google_app_engine_default_service_account.default.name
-#   role               = "roles/cloudsql.client"
+  service_account_id = data.google_app_engine_default_service_account.default.name
+  role               = "roles/cloudsql.client"
 
-#   members = [
-#     "serviceAccount:${data.google_app_engine_default_service_account.default.email}",
-#   ]
-# }
+  members = [
+    "serviceAccount:${data.google_app_engine_default_service_account.default.email}",
+  ]
+}
 
 resource "google_compute_network" "private_network" {
   provider = google-beta
