@@ -4,12 +4,11 @@ This repository maintains the GCP infrastructure configration through utilising 
 
 ```mermaid
 mindmap
-    root((BornIn))
+    root((BornIn Infrastructure))
         App Engine
         Cloud SQL
             Instance
                 Database
-                    User
         VPC Network
             Private IP Address
             Private VPC Connection
