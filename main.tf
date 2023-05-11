@@ -48,7 +48,7 @@ resource "google_sql_database_instance" "bornin_db_instance" {
 
   name             = "bornin-db_instance"
   database_version = "MYSQL_8_0"
-  region           = "europe-west3"
+  region           = "europe-west"
   deletion_protection = false
 
   depends_on = [google_service_networking_connection.private_vpc_connection]
@@ -88,6 +88,6 @@ resource "google_vpc_access_connector" "bornin_connector" {
   name          = "bornin_connector"
   ip_cidr_range = "10.8.0.0/28"
   network       = google_compute_network.private_network.id
-  region        = "europe-west3"
+  region        = "europe-west"
 }
 
