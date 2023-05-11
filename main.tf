@@ -60,10 +60,10 @@ resource "google_service_networking_connection" "private_vpc_connection" {
 }
 
 
-resource "google_sql_database_instance" "bornin_db_instance" {
+resource "google_sql_database_instance" "instance" {
   provider = google-beta
 
-  name             = "bornin-db_instance"
+  name             = "bornin-db-instance"
   database_version = "MYSQL_8_0"
   region           = "europe-west3"
   deletion_protection = false
@@ -79,11 +79,11 @@ resource "google_sql_database_instance" "bornin_db_instance" {
   }
 }
 
-resource "google_sql_database" "bornin_database" {
+resource "google_sql_database" "database" {
   provider = google-beta
 
-  name     = "bornin_database"
-  instance = google_sql_database_instance.bornin_db_instance.name
+  name     = "bornin-database"
+  instance = google_sql_database_instance.instance.name
 }
 
 resource "random_id" "db_pass" {
@@ -94,7 +94,7 @@ resource "google_sql_user" "users" {
   provider = google-beta
 
   name     = "guest"
-  instance = google_sql_database_instance.bornin_db_instance.name
+  instance = google_sql_database_instance.instance.name
   password = random_id.db_pass.hex
   
 }
