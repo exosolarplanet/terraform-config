@@ -1,6 +1,10 @@
 name: Terraform plan
 
-on: push
+on:
+  push:
+    branches:
+      - 'main'
+      - 'feature/*'
 
 jobs:
   plan:
