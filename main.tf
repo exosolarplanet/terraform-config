@@ -22,6 +22,8 @@ data "google_app_engine_default_service_account" "default" {
 }
 
 resource "google_service_account_iam_binding" "admin-account-iam" {
+  provider = google-beta
+
   service_account_id = data.google_app_engine_default_service_account.default.name
   role               = "roles/cloudsql.client"
 
