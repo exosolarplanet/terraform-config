@@ -2,7 +2,7 @@ name: Mondoo Terraform scan
 on: 
   push:
     paths:
-      - "terraform-config/main.tf"
+      - "./main.tf"
 
 jobs:
   scan:
