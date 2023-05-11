@@ -2,7 +2,7 @@ terraform {
   cloud {
     organization = "my-company-ece"
     workspaces {
-      name = "bornin-terraform-config"
+      name = "bornin-tf-workspace"
     }
   }
 }
@@ -12,8 +12,10 @@ provider "google-beta" {
 }
 
 resource "google_app_engine_application" "app" {
+  provider = google-beta
+
   project     = var.project_id
-  location_id = "europe-west"
+  location_id = "europe-west3"
 }
 
 resource "google_compute_network" "private_network" {
@@ -41,10 +43,10 @@ resource "google_service_networking_connection" "private_vpc_connection" {
 }
 
 
-resource "google_sql_database_instance" "bornin-db-instance" {
+resource "google_sql_database_instance" "bornin_db_instance" {
   provider = google-beta
 
-  name             = "bornin-db-instance"
+  name             = "bornin-db_instance"
   database_version = "MYSQL_8_0"
   region           = "europe-west3"
   deletion_protection = false
@@ -60,11 +62,11 @@ resource "google_sql_database_instance" "bornin-db-instance" {
   }
 }
 
-resource "google_sql_database" "database" {
+resource "google_sql_database" "bornin_database" {
   provider = google-beta
 
-  name     = "bornin-database"
-  instance = google_sql_database_instance.bornin-db-instance.name
+  name     = "bornin_database"
+  instance = google_sql_database_instance.bornin_db_instance.name
 }
 
 resource "random_id" "db_pass" {
@@ -75,15 +77,15 @@ resource "google_sql_user" "users" {
   provider = google-beta
 
   name     = "guest"
-  instance = google_sql_database_instance.bornin-db-instance.name
+  instance = google_sql_database_instance.bornin_db_instance.name
   password = random_id.db_pass.hex
   
 }
 
-resource "google_vpc_access_connector" "connector" {
+resource "google_vpc_access_connector" "bornin_connector" {
   provider = google-beta
 
-  name          = "quickstart-connector"
+  name          = "bornin_connector"
   ip_cidr_range = "10.8.0.0/28"
   network       = google_compute_network.private_network.id
   region        = "europe-west3"
