@@ -18,7 +18,7 @@ mindmap
 
 # Architecture Diagram
 
-![Diagram](docs/diagram2.png)
+![Diagram](docs/diagram.png)
 
 ## Monitoring, Logging and Tracing
 Google App Engine has various built-in tools for visualising and analysing the metrics of your application.
