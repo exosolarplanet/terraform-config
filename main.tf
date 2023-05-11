@@ -99,10 +99,10 @@ resource "google_sql_user" "users" {
   
 }
 
-resource "google_vpc_access_connector" "bornin_connector" {
+resource "google_vpc_access_connector" "connector" {
   provider = google-beta
 
-  name          = "bornin_connector"
+  name          = "bornin-connector"
   ip_cidr_range = "10.8.0.0/28"
   network       = google_compute_network.private_network.id
   region        = "europe-west3"
