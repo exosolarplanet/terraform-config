@@ -1,8 +1,5 @@
 name: Mondoo Terraform scan
-on: 
-  push:
-    paths:
-      - "./main.tf"
+on: push
 
 jobs:
   scan:
