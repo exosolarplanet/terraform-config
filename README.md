@@ -4,7 +4,7 @@ This repository maintains the GCP infrastructure configration through utilising 
 
 ```mermaid
 mindmap
-    root((BornIn Infrastructure))
+    root((BornIn))
         App Engine
         Cloud SQL
             Instance
@@ -15,3 +15,14 @@ mindmap
             VPC Access Connector
 
 ```
+
+Talk about
+access to app engine endpoints - should be secured with IAP
+cloud sql should be secured in a vpc network, closed off
+
+app engine warm up inbound services
+rollback
+url testing 
+logging and tracing
+
+![Diagram](docs/Untitled-2023-05-11-1520.png)
