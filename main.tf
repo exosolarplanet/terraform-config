@@ -2,7 +2,7 @@ terraform {
   cloud {
     organization = "my-company-ece"
     workspaces {
-      name = ${{ vars.TERRAFORM_WORKSPACE }}
+      name = "bornin-tf-workspace"
     }
   }
 }
