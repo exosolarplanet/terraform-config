@@ -40,17 +40,18 @@ Even see the errors that your application has encountered the most and trace the
 ![AppErrors](docs/app_errors.png)
 
 ## Security
-Enabling web securty scans on your URIs allows you scan them for vulnerabilities by testing them with many user inputs and event handlers
+Enabling web security scans on your URIs allows you to scan them for vulnerabilities by testing them with many user inputs and event handlers
 ![Scanning](docs/scanning.png)
 
 > The Cloud SQL instance has a private IP and resides in a private VPC network
 
 ## Scalability 
-With App Engine it's easy to scale applications up and down, making it a great option for high-demand & no-downtime applications. When a new App Engine deployment is made, 
+With App Engine, it's easy to scale deployments up and down, making it a great option for high-demand & no-downtime applications. When a new App Engine deployment is made, 
+it is configured to use warmup requests in order to split the traffic between the new version and the previous version, improving the latency issues the user might face.
 ![Scalability](docs/scalability.png)
-app engine warm up inbound services
-rollback - migrate traffic
+> If a new deployment is not running as expected, you can easily rollback to the the previous version via Google Cloud Console or migrate all the traffic to any version you like
+
 
 ## Further Improvements
-access to app engine endpoints - should be secured with IAP
+* Access to App Engine URIs should be secured further by IAP to manage user access
 
