@@ -26,7 +26,7 @@ mindmap
 Google App Engine has various built-in tools for visualising and analysing the metrics of your application.
 
 ### Network Traffic Monitoring
-You can monitor the traffic of you application and responses
+You can monitor the traffic of your application and responses
 ![Logging](docs/monitoring.png)
 
 ### Billing Monitoring
