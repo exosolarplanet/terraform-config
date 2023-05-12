@@ -45,7 +45,7 @@ Enabling web security scans on your URIs allows you to scan them for vulnerabili
 ![Scanning](docs/scanning.png)
 
 ##### Cloud SQL
-The Cloud SQL instance has a private IP and resides in a private VPC network
+The Cloud SQL instance has a private IP and resides in a private VPC network. As the connection tests show below, only an IP from the private network can reach the Cloud SQL instance and the instance is unreachable otherwise.
 ![SQLTest](docs/sql_test.png)
 
 ## Scalability 
