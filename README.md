@@ -1,6 +1,8 @@
 # Terraform Configuration for BornIn Application
 
-This repository maintains the GCP infrastructure configration through utilising Github Actions and Terraform Cloud. 
+This repository maintains the GCP infrastructure configuration using Github Actions and Terraform Cloud. 
+
+> Terraform state is stored in Terraform Cloud
 
 ```mermaid
 mindmap
