@@ -40,10 +40,13 @@ Even see the errors that your application has encountered the most and trace the
 ![AppErrors](docs/app_errors.png)
 
 ## Security
+##### App Engine
 Enabling web security scans on your URIs allows you to scan them for vulnerabilities by testing them with many user inputs and event handlers
 ![Scanning](docs/scanning.png)
 
-> The Cloud SQL instance has a private IP and resides in a private VPC network
+##### Cloud SQL
+The Cloud SQL instance has a private IP and resides in a private VPC network
+![SQLTest](docs/sql_test.png)
 
 ## Scalability 
 With App Engine, it's easy to scale deployments up and down, making it a great option for high-demand & no-downtime applications. When a new App Engine deployment is made, 
