@@ -2,9 +2,11 @@ name: Terraform plan
 
 on:
   push:
-    branches:
-      - 'main'
-      - 'feature/*'
+#     branches:
+#       - 'main'
+#       - 'feature/*'
+    paths:
+      - '**.tf'
 
 jobs:
   plan:
